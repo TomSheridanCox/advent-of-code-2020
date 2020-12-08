@@ -6,7 +6,6 @@ numbers = set(content)
 print(len(numbers))
 # actual code starts here
 def findTrips():
-    result = 0
     for i in numbers:
         minus = 2020 - i
         print("First minus: " + str(minus))
@@ -17,5 +16,6 @@ def findTrips():
             if second_minus in numbers:
                 result = i * y * second_minus
                 return result
+
 
 print("answer: " + str(findTrips()))
