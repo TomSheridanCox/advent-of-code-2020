@@ -5,9 +5,17 @@ content = [int(x.strip()) for x in content]
 numbers = set(content)
 print(len(numbers))
 # actual code starts here
-for i in numbers:
-    minus = 2020 - i
-    if minus in numbers: # in is O(1) unless collisions
-        result = minus * i
-        break
-print("answer: " + str(result))
+def findTrips():
+    result = 0
+    for i in numbers:
+        minus = 2020 - i
+        print("First minus: " + str(minus))
+        for y in numbers:
+            if y >= minus:
+                continue
+            second_minus = minus - y
+            if second_minus in numbers:
+                result = i * y * second_minus
+                return result
+
+print("answer: " + str(findTrips()))
